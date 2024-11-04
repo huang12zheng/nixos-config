@@ -1,4 +1,4 @@
-{ flake, ... }:
+{ flake, pkgs, ... }:
 
 let
   inherit (flake) inputs;
@@ -22,6 +22,13 @@ in
   services.syncthing = { enable = true; user = ${username}; dataDir = "/home/${username}/Documents"; };
 
   programs.nix-ld.enable = true; # for vscode server
+
+  environment.systemPackages = with pkgs; [
+    brave
+    vscode
+    zed-editor
+    telegram-desktop
+  ];
 
   # Workaround the annoying `Failed to start Network Manager Wait Online` error on switch.
   # https://github.com/NixOS/nixpkgs/issues/180175
