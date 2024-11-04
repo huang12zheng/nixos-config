@@ -11,4 +11,9 @@ in
   ];
   home.username = me.username;
   home.homeDirectory = "/home/${me.username}";
+  services.xserver.displayManager.autoLogin.enable = true;
+  services.xserver.displayManager.autoLogin.user = me.username;
+
+  systemd.services."getty@tty1".enable = false;
+  systemd.services."autovt@tty1".enable = false;
 }

@@ -14,7 +14,7 @@
         openssh.authorizedKeys.keys = myKeys;
         shell = pkgs.zsh;
       } // lib.optionalAttrs pkgs.stdenv.isLinux {
-        isNormalUser = true;
+        isNormalUser = true; 
         extraGroups = [ "networkmanager" "wheel" ];
       };
     };
