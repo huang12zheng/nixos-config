@@ -1,9 +1,16 @@
 {
-  time.timeZone = "America/New_York";
+  time.timeZone = "Asia/Shanghai";
 
-  location = {
-    # Quebec City
-    latitude = 46.813359;
-    longitude = -71.215796;
+  # 杭州
+  location.hangzhou = {
+    latitude = 30.2741;
+    longitude = 120.1551;
   };
+
+# # 宁德霞浦
+# location.xiapu = {
+#   latitude = 26.8824;
+#   longitude = 120.0066;
+# };
 }
+#
