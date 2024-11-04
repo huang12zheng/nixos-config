@@ -14,7 +14,7 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
     ragenix.url = "github:yaxitech/ragenix";
-    nuenv.url = "github:hallettj/nuenv/writeShellApplication";
+    # nuenv.url = "github:hallettj/nuenv/writeShellApplication";
 
     # Software inputs
     github-nix-ci.url = "github:juspay/github-nix-ci";
@@ -22,7 +22,7 @@
     nixos-vscode-server.url = "github:nix-community/nixos-vscode-server";
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
-    actualism-app.url = "github:srid/actualism-app";
+    # actualism-app.url = "github:srid/actualism-app";
     omnix.url = "github:juspay/omnix";
     hyprland.url = "github:hyprwm/Hyprland";
 
@@ -36,24 +36,27 @@
     # Devshell
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
+  outputs = inputs:
+    inputs.nixos-unified.lib.mkFlake
+      { inherit inputs; root = ./.; };
 
-  outputs = inputs@{ self, ... }:
-    inputs.flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
-      imports = (with builtins;
-        map
-          (fn: ./modules/flake-parts/${fn})
-          (attrNames (readDir ./modules/flake-parts)));
+  # outputs = inputs@{ self, ... }:
+  #   inputs.flake-parts.lib.mkFlake { inherit inputs; } {
+  #     systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" ];
+  #     imports = (with builtins;
+  #       map
+  #         (fn: ./modules/flake-parts/${fn})
+  #         (attrNames (readDir ./modules/flake-parts)));
 
-      perSystem = { lib, system, ... }: {
-        # Make our overlay available to the devShell
-        # "Flake parts does not yet come with an endorsed module that initializes the pkgs argument.""
-        # So we must do this manually; https://flake.parts/overlays#consuming-an-overlay
-        _module.args.pkgs = import inputs.nixpkgs {
-          inherit system;
-          overlays = lib.attrValues self.overlays;
-          config.allowUnfree = true;
-        };
-      };
-    };
+  #     perSystem = { lib, system, ... }: {
+  #       # Make our overlay available to the devShell
+  #       # "Flake parts does not yet come with an endorsed module that initializes the pkgs argument.""
+  #       # So we must do this manually; https://flake.parts/overlays#consuming-an-overlay
+  #       _module.args.pkgs = import inputs.nixpkgs {
+  #         inherit system;
+  #         overlays = lib.attrValues self.overlays;
+  #         config.allowUnfree = true;
+  #       };
+  #     };
+  #   };
 }

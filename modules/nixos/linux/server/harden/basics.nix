@@ -7,6 +7,8 @@
   security.auditd.enable = true;
   security.audit.enable = true;
 
+  
+
   # Standard openssh protections
   #
   # See primary-as-admin.nix to setup passwordless setup.
@@ -17,6 +19,16 @@
       settings.PasswordAuthentication = false;
       allowSFTP = false;
     };
+
+    avahi = {
+      enable = true;
+      nssmdns4 = true;
+      publish = {
+        enable = true;
+        domain = true;
+        userServices = true;
+      };
+  };
   };
 
   # 🤲

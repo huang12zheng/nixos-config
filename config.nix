@@ -2,9 +2,9 @@
 # See ./modules/flake-parts/config.nix for module options.
 {
   me = {
-    username = "srid";
-    fullname = "Sridhar Ratnakumar";
-    email = "srid@srid.ca";
-    sshKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHQRxPoqlThDrkR58pKnJgmeWPY9/wleReRbZ2MOZRyd";
+    username = "hzgood";
+    fullname = "HuangZheng";
+    email = "805104533@qq.com";
+    sshKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIODixkP460ow40H3sepPRc+DWCXuCkXr+VBwSEsxardb";
   };
 }
