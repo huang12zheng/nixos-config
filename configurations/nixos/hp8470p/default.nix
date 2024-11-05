@@ -23,13 +23,6 @@ in
 
   programs.nix-ld.enable = true; # for vscode server
 
-  environment.systemPackages = with pkgs; [
-    brave
-    vscode
-    zed-editor
-    telegram-desktop
-  ];
-
   # Workaround the annoying `Failed to start Network Manager Wait Online` error on switch.
   # https://github.com/NixOS/nixpkgs/issues/180175
   systemd.services.NetworkManager-wait-online.enable = false;

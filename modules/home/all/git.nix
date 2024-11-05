@@ -7,7 +7,7 @@
   programs.git = {
     package = pkgs.gitAndTools.gitFull;
     enable = true;
-    userName = flake.config.me.fullname;
+    userName = flake.config.me.git-username;
     userEmail = flake.config.me.email;
     aliases = {
       co = "checkout";
