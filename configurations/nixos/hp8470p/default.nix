@@ -9,7 +9,7 @@ in
   imports = [
     self.nixosModules.default
     ./configuration.nix
-    (self + /modules/nixos/linux/gui/hyprland.nix)
+    # (self + /modules/nixos/linux/gui/hyprland.nix)
     (self + /modules/nixos/linux/gui/gnome.nix)
     (self + /modules/nixos/linux/gui/desktopish/fonts.nix)
     # (self + /modules/nixos/linux/gui/desktopish/steam.nix)
@@ -19,7 +19,7 @@ in
   services.openssh.enable = true;
   services.tailscale.enable = true;
   services.fprintd.enable = true;
-  services.syncthing = { enable = true; user = ${username}; dataDir = "/home/${username}/Documents"; };
+  services.syncthing = { enable = true; user = username; dataDir = "/home/${username}/Documents"; };
 
   programs.nix-ld.enable = true; # for vscode server
 
