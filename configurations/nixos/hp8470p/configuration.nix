@@ -63,6 +63,7 @@
     # brave
     vscode
     # zed-editor
+    geekbench_5
   ];
 
   # This value determines the NixOS release from which the default
