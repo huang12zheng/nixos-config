@@ -21,7 +21,7 @@
     };
 
   swapDevices = 
-    [ { device = "/dev/disk/by-uuid/85577f1d-eeeb-483a-bc25-d830ebb29a91"}];
+    [ { device = "/dev/disk/by-uuid/85577f1d-eeeb-483a-bc25-d830ebb29a91";}];
 
   # boot.initrd.luks.devices."luks-1cf2cb06-3425-45d1-8a94-faf62abd3017".device = "/dev/disk/by-uuid/1cf2cb06-3425-45d1-8a94-faf62abd3017";
 
