@@ -38,8 +38,6 @@
     layout = "us";
     variant = "";
   };
-  wsl.enable = true;
-  wsl.defaultUser = "nixos";
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
