@@ -20,20 +20,16 @@ in
     # ncdu
 
     # Useful for Nix development
-    ci
-    touchpr
     omnix
     nixpkgs-fmt
     just
 
     # Publishing
     asciinema
-    twitter-convert
 
     # Dev
     gh
     fuckport
-    sshuttle-via
     entr
     git-merge-and-delete
 
