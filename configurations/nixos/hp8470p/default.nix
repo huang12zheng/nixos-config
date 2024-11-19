@@ -10,11 +10,16 @@ in
     self.nixosModules.default
     ./configuration.nix
     # (self + /modules/nixos/linux/gui/hyprland.nix)
-    (self + /modules/nixos/linux/gui/gnome.nix)
-    (self + /modules/nixos/linux/gui/desktopish/fonts.nix)
+    
     # (self + /modules/nixos/linux/gui/desktopish/steam.nix)
     # (self + /modules/nixos/linux/gui/_1password.nix)
   ];
+  users.users.${username}.isNormalUser = true;
+  home-manager.users.${username} = { 
+    imports = [
+      (self + /configurations/home/${username}.nix)
+    ];
+  };
 
   services.openssh.enable = true;
   services.tailscale.enable = true;

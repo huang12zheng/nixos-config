@@ -31,5 +31,21 @@ in
     me = lib.mkOption {
       type = userSubmodule;
     };
+    opt = lib.mkOption {
+      type = lib.types.attrsOf lib.types.anything;
+      default = {
+        isMinimalConfig = false;
+        proxyPort = 7890;
+        # isCli = (builtins.getEnv "DISPLAY")=="";
+        isCli = (builtins.getEnv "DISPLAY" == "")
+          || (builtins.getEnv "XDG_SESSION_TYPE" == "");
+        isGui = (builtins.getEnv "DISPLAY")!="";
+        isNixOnDroid = (builtins.getEnv "USER")=="nix-on-droid";
+        isWSL2 = (builtins.getEnv "WSL_DISTRO_NAME")!="";
+        isCliORWSL2 = (builtins.getEnv "DISPLAY" == "")
+          || (builtins.getEnv "XDG_SESSION_TYPE" == "")
+          || (builtins.getEnv "WSL_DISTRO_NAME")!="";
+      };
+    };
   };
 }
