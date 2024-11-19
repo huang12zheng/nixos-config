@@ -14,3 +14,7 @@ deploy:
 # Format the nix source tree
 fmt:
     treefmt
+hp8470p:
+    nix run .#activate hzgood@ --target-host hzgood@192.168.1.6 --build-host localhost --verbose
+win-vm:
+    nix run .#activate nixos@

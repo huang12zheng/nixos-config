@@ -13,7 +13,7 @@ in
     ripgrep
     fd
     sd
-    wget
+    # wget # had in system
     moreutils # ts, etc.
     gnumake
     # Broken, https://github.com/NixOS/nixpkgs/issues/299680
@@ -52,6 +52,7 @@ in
     lg = "lazygit";
     l = "ls";
     beep = "say 'beep'";
+    b = "bat";
   };
 
   programs = {

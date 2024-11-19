@@ -64,6 +64,7 @@
     vscode
     # zed-editor
     geekbench_5
+    tree
   ];
 
   # This value determines the NixOS release from which the default

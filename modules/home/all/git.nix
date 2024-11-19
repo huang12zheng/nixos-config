@@ -7,7 +7,7 @@
   programs.git = {
     package = pkgs.gitAndTools.gitFull;
     enable = true;
-    userName = flake.config.me.git-username;
+    userName =  "huang12zheng";
     userEmail = flake.config.me.email;
     aliases = {
       co = "checkout";
@@ -46,16 +46,16 @@
     };
   };
 
-  programs.lazygit = {
-    enable = true;
-    settings = {
-      # This looks better with the kitty theme.
-      gui.theme = {
-        lightTheme = false;
-        activeBorderColor = [ "white" "bold" ];
-        inactiveBorderColor = [ "white" ];
-        selectedLineBgColor = [ "reverse" "white" ];
-      };
-    };
-  };
+  # programs.lazygit = {
+  #   enable = true;
+  #   settings = {
+  #     # This looks better with the kitty theme.
+  #     gui.theme = {
+  #       lightTheme = false;
+  #       activeBorderColor = [ "white" "bold" ];
+  #       inactiveBorderColor = [ "white" ];
+  #       selectedLineBgColor = [ "reverse" "white" ];
+  #     };
+  #   };
+  # };
 }

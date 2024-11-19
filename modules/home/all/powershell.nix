@@ -14,7 +14,7 @@
     $Env:PATH += ":/Applications/Docker.app/Contents/Resources/bin/"
 
     # starship
-    Invoke-Expression (&starship init powershell)
+    # Invoke-Expression (&starship init powershell)
 
     # zoxide
     Invoke-Expression (& {

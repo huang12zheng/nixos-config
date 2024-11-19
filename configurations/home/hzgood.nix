@@ -8,6 +8,8 @@ in
   imports = [
     self.homeModules.default
     self.homeModules.linux-only
+    (self + /modules/nixos/linux/gui/gnome.nix)
+    (self + /modules/nixos/linux/gui/desktopish/fonts.nix)
   ];
   home.username = me.username;
   home.homeDirectory = "/home/${me.username}";

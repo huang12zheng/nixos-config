@@ -1,10 +1,10 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
-  imports =
-    [
-      nixos-wsl.nixosModules.wsl
-    ];
+  # imports =
+  #   [
+      
+  #   ];
 
   networking.hostName = "win-vm"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -24,8 +24,9 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
+    tree
   ];
-
+  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave

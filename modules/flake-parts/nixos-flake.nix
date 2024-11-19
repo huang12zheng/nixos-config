@@ -1,10 +1,12 @@
 { inputs, ... }:
+let inherit (inputs) self;
+in
 {
   imports = [
     inputs.nixos-unified.flakeModules.default
     inputs.nixos-unified.flakeModules.autoWire
   ];
-  perSystem = { self', ... }: {
+  perSystem = { self', lib, system, ... }: {
     packages.default = self'.packages.activate;
 
     # Flake inputs we want to update periodically
@@ -19,6 +21,11 @@
         # "nixvim"
         "omnix"
       ];
+    };
+    _module.args.pkgs = import inputs.nixpkgs {
+      inherit system;
+      overlays = lib.attrValues self.overlays;
+      config.allowUnfree = true;
     };
   };
 }
