@@ -2,7 +2,7 @@
 
 {
   fonts = {
-    enableDefaultPackages = true;
+    # enableDefaultPackages = true;
 
     packages = with pkgs; [
       # NOTE: Some fonts may break colour emojis in Chrome

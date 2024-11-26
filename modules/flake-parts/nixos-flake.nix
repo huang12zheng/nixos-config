@@ -19,7 +19,7 @@ in
         "nixos-unified"
         "nix-index-database"
         # "nixvim"
-        "omnix"
+        # "omnix"
       ];
     };
     _module.args.pkgs = import inputs.nixpkgs {

@@ -1,0 +1,3 @@
+mkdir -p ~/Gist/clash
+cd ~/Gist/clash
+wget -O config.yaml "https://7eqgn.no-mad-world.club/link/KYpC5H7c6Ylia2K2?clash=3"

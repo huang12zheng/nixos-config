@@ -5,17 +5,12 @@ let
   inherit (flake.config) me;
 in
 {
+  home.username = me.username;
+  home.homeDirectory = "/home/${me.username}";
+
   imports = [
     self.homeModules.default
     self.homeModules.linux-only
-    (self + /modules/nixos/linux/gui/gnome.nix)
-    (self + /modules/nixos/linux/gui/desktopish/fonts.nix)
   ];
-  home.username = me.username;
-  home.homeDirectory = "/home/${me.username}";
-  services.xserver.displayManager.autoLogin.enable = true;
-  services.xserver.displayManager.autoLogin.user = me.username;
 
-  systemd.services."getty@tty1".enable = false;
-  systemd.services."autovt@tty1".enable = false;
 }

@@ -61,10 +61,12 @@
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     # brave
-    vscode
     # zed-editor
     geekbench_5
     tree
+    home-manager
+    pciutils
+    
   ];
 
   # This value determines the NixOS release from which the default
