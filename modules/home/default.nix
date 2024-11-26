@@ -29,23 +29,18 @@ in
     # ./all/juspay.nix
   ]; 
   
-  home.packages = with pkgs; lib.optional (!opt.isCliORWSL2) [
-    feishu
-    (wechat-uos.override {
-      buildFHSEnv = args: buildFHSEnv (args // {
-        # bubble wrap wechat-uos's home directory
-        extraBwrapArgs = [
-          "--bind ${config.home.homeDirectory}/.local/share/wechat-uos /home"
-          "--chdir /home"
-        ];
-      });
-      uosLicense = fetchurl {
-        url = "https://github.com/xddxdd/nur-packages/raw/master/pkgs/uncategorized/wechat-uos/license.tar.gz";
-        sha256 = "0sdx5mdybx4y489dhhc8505mjfajscggxvymlcpqzdd5q5wh0xjk";
-      };
-    })
-    nur.repos.linyinfeng.wemeet
-    nur.repos.xddxdd.dingtalk
-    libreoffice
+  home.packages = with pkgs; 
+    # lib.optional (!opt.isCliORWSL2)
+  [
+    # ccache
+    rsync
+    screen
+    shell-genie
+    # nur.repos.linyinfeng.wemeet
+    # nur.repos.xddxdd.dingtalk
+    # libreoffice
   ];
+  # dg.desktopEntries = {
+
+  # }
 }

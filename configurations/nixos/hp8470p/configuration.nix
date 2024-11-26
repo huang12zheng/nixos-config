@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   imports =
@@ -60,12 +60,15 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
-    # brave
+    
+    feishu
+    wechat-uos
+    wpsoffice
+    brave
     # zed-editor
     geekbench_5
     tree
-    home-manager
-    pciutils
+    # home-manager
     
   ];
 

@@ -2,9 +2,9 @@
   inherit (flake.config.me) username;
 in{
   environment.systemPackages = with pkgs; [
-    android-studio
     clang
     cmake
+    android-studio
     flutter
     ninja
     pkg-config
@@ -15,7 +15,7 @@ in{
     adb.enable = true;
   };
 
-  users.users.username = {
+  users."${username}" = {
     extraGroups = [
       "adbusers"
     ];

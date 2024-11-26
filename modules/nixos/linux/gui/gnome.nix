@@ -42,7 +42,7 @@ in
 
     # This is necessary to set CAPS to CTRL
     gnome-tweaks
-    home-manager
+    # home-manager
     google-chrome
 
     # gnomeExtensions.appindicator
