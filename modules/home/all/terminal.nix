@@ -20,7 +20,7 @@ in
     # ncdu
 
     # Useful for Nix development
-    omnix
+    # omnix
     nixpkgs-fmt
     just
 
@@ -66,7 +66,7 @@ in
       enableAliases = true;
     };
     bat.enable = true;
-    autojump.enable = false;
+    autojump.enable = true;
     zoxide.enable = true;
     fzf.enable = true;
     jq.enable = true;

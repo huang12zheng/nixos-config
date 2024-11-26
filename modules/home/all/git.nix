@@ -1,4 +1,7 @@
 { pkgs, flake, ... }:
+# let
+#   inherit (flake.config.opt) github_token;
+# in
 {
   home.packages = with pkgs; [
     git-filter-repo

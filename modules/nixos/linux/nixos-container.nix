@@ -24,7 +24,7 @@ in
       ];
       #services.resolved.enable = true;
       #networking.useHostResolvConf = lib.mkForce false;
-      system.stateVersion = "23.11";
+      system.stateVersion = "25.05";
     };
   };
 }

@@ -30,12 +30,12 @@ in {
       #     hostip=$(cat /etc/resolv.conf | grep nameserver | awk '{ print $2 }')
       #     export HTTP_PROXY="http://$hostip:${toString opt.proxyPort}"
       # fi
-      export HTTPS_PROXY="$HTTP_PROXY"
-      export HTTP_PROXY="$HTTP_PROXY"
-      export FTP_PROXY="$HTTP_PROXY"
-      export http_proxy="$HTTP_PROXY"
-      export https_proxy="$HTTP_PROXY"
-      export ftp_proxy="$HTTP_PROXY"
+      # export HTTPS_PROXY="$HTTP_PROXY"
+      # export HTTP_PROXY="$HTTP_PROXY"
+      # export FTP_PROXY="$HTTP_PROXY"
+      # export http_proxy="$HTTP_PROXY"
+      # export https_proxy="$HTTP_PROXY"
+      # export ftp_proxy="$HTTP_PROXY"
     '');
   }];
 }
