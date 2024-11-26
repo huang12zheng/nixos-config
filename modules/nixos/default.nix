@@ -20,8 +20,6 @@ in
         ];
       };
     }
-    {
-      programs.environment.variables.GITHUB_TOKEN = github_token;
-    }
   ];
+  environment.variables.GITHUB_TOKEN = github_token;
 }
