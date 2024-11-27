@@ -7,6 +7,9 @@
     # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixos-unstable";
     # nixpkgs.url = "https://mirrors.ustc.edu.cn/nix-channels/nixpkgs-unstable/nixexprs.tar.xz";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    # nur.url = "https://github.com/nix-community/NUR/archive/master.tar.gz";
+
+    nur.url = "github:nix-community/NUR";
     nixos-wsl.url = "github:nix-community/nixos-wsl";
     flake-parts.url = "github:hercules-ci/flake-parts";
     nix-darwin.url = "github:LnL7/nix-darwin";
@@ -40,10 +43,11 @@
     # Devshell
     treefmt-nix.url = "github:numtide/treefmt-nix";
   };
+
   outputs = inputs:
     inputs.nixos-unified.lib.mkFlake
-      { 
-        inherit inputs; root = ./.; 
+      {
+        inherit inputs; root = ./.;
       };
 
   # outputs = inputs@{ self, ... }:

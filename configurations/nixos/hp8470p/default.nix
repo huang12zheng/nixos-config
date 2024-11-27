@@ -1,17 +1,16 @@
-{ flake, pkgs, ... }:
+{ flake, ... }:
 
 let
   inherit (flake) inputs;
   inherit (inputs) self;
   inherit (flake.config.me) username;
-  inherit (flake.config.opt) proxyPort;
 in
 {
   imports = [
     self.nixosModules.default
     ./configuration.nix
     # (self + /modules/nixos/linux/gui/hyprland.nix)
-    
+
     (self + /modules/nixos/linux/gui/desktopish/vscode.nix)
     # (self + /modules/nixos/linux/flutter.nix)
     (self + /modules/nixos/linux/gui/gnome.nix)
@@ -19,7 +18,7 @@ in
     # (self + /modules/nixos/linux/gui/_1password.nix)
   ];
   users.users.${username}.isNormalUser = true;
-  home-manager.users.${username} = { 
+  home-manager.users.${username} = {
     imports = [
       (self + /configurations/home/${username}.nix)
     ];
@@ -33,7 +32,7 @@ in
 
   systemd.services."getty@tty1".enable = false;
   systemd.services."autovt@tty1".enable = false;
-  
+
 
   programs.nix-ld.enable = true; # for vscode server
 
