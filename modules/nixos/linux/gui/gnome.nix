@@ -1,9 +1,8 @@
-{ pkgs,flake, ... }: 
+{ pkgs, flake, ... }:
 let
   inherit (flake.config.me) username;
-  inherit (flake.config.opt) proxyPort;
 in
-  {
+{
   services = {
     displayManager.autoLogin.enable = true;
     displayManager.autoLogin.user = username;
@@ -11,7 +10,7 @@ in
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;
-    
+
     desktopManager.gnome.enable = true;
     # desktopManager.gnome.extraGSettingsOverrides = {
     #   "org.gnome.system.proxy" = {
@@ -31,6 +30,9 @@ in
   i18n.inputMethod.type = "ibus";
   i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; [
     rime
+    table-chinese
+    table-others
+    # rime-wubi
     # keyboard layout is wrong in anthy, e.g. punctuations
     # anthy
     # hinagara toggle setting is absent in mozc
