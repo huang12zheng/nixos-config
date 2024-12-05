@@ -30,8 +30,8 @@ in
   i18n.inputMethod.type = "ibus";
   i18n.inputMethod.ibus.engines = with pkgs.ibus-engines; [
     rime
-    table-chinese
-    table-others
+    # table-chinese
+    # table-others
     # rime-wubi
     # keyboard layout is wrong in anthy, e.g. punctuations
     # anthy
@@ -49,5 +49,7 @@ in
 
     # gnomeExtensions.appindicator
     gnomeExtensions.clipboard-indicator
+    # nur.repos.linyinfeng.rimePackages.rime-wubi
   ];
+
 }

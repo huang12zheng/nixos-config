@@ -9,6 +9,7 @@ in
 {
   imports = [
     self.nixosModules.common
+    self.nixosModules.flutter
     # inputs.ragenix.nixosModules.default # Used in github-runner.nix & hedgedoc.nix
     ./linux/current-location.nix
     ./linux/light.nix

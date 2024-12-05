@@ -11,6 +11,7 @@ in
   imports = [
     self.homeModules.default
     self.homeModules.linux-only
+    self.homeModules.flutter
   ];
 
 }

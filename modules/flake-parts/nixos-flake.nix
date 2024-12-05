@@ -25,7 +25,12 @@ in
     _module.args.pkgs = import inputs.nixpkgs {
       inherit system;
       overlays = lib.attrValues self.overlays;
-      config.allowUnfree = true;
+      config = {
+        allowUnfree = true;
+        android_sdk.accept_license = true;
+        allowBroken = true;
+        allowUnsupportedSystem = true;
+      };
     };
   };
 }

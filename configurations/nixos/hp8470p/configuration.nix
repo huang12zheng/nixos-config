@@ -70,7 +70,7 @@
     tree
     nixd
     # home-manager
-
+    android-studio
   ];
 
   # This value determines the NixOS release from which the default
