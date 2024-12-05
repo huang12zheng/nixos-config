@@ -36,10 +36,8 @@
       shell-genie
       # nur.repos.linyinfeng.wemeet
       # nur.repos.xddxdd.dingtalk
-      nur.repos.linyinfeng.rimePackages.rime-wubi
+      # nur.repos.linyinfeng.rimePackages.rime-wubi
     ];
-  #   ])
-  # ++ [ (nur.repos.linyinfeng.rime-wubi) ];
 
   programs.vscode = {
     enable = true;
@@ -125,6 +123,32 @@
       http.proxySupport = "on";
       editor.renderWhitespace = "boundary";
     };
+    keybindings = [
+      # {
+      #   key = "shift+alt+down";
+      #   command = "-notebook.cell.copyDown";
+      #   when = "notebookEditorFocused && !inputFocus";
+      # }
+      {
+        key = "shift+alt+down";
+        command = "editor.action.copyLinesDownAction";
+        when = "editorTextFocus && !editorReadonly";
+      }
+      {
+        key = "ctrl+shift+alt+down";
+        command = "-editor.action.copyLinesDownAction";
+        when = "editorTextFocus && !editorReadonly";
+      }
+      {
+        key = "shift+alt+down";
+        command = "-editor.action.insertCursorBelow";
+        when = "editorTextFocus";
+      }
+      {
+        key = "shift+alt+a";
+        command = "highlightwords.addHighlight";
+      }
+    ];
   };
   # dg.desktopEntries = {
 

@@ -6,15 +6,16 @@ let
   inherit (flake.config.me) username;
 in
 {
+
   nixpkgs = {
     config = {
       allowBroken = true;
       allowUnsupportedSystem = true;
       allowUnfree = true;
+      android_sdk.accept_license = true;
     };
     overlays = lib.attrValues self.overlays;
   };
-
   nix = {
     # Choose from https://search.nixos.org/packages?channel=unstable&from=0&size=50&sort=relevance&type=packages&query=nix
     # package = pkgs.nixVersions.latest;
@@ -26,9 +27,9 @@ in
       max-jobs = "auto";
       experimental-features = "nix-command flakes";
       # I don't have an Intel mac.
-      extra-platforms = lib.mkIf pkgs.stdenv.isDarwin "aarch64-darwin x86_64-darwin";
+      # extra-platforms = lib.mkIf pkgs.stdenv.isDarwin "aarch64-darwin x86_64-darwin";
       # Nullify the registry for purity.
-      flake-registry = builtins.toFile "empty-flake-registry.json" ''{"flakes":[],"version":2}'';
+      # flake-registry = builtins.toFile "empty-flake-registry.json" ''{"flakes":[],"version":2}'';
       trusted-users = [ "root" (lib.mkIf pkgs.stdenv.isLinux "@wheel") username "nixos" ];
       # trusted-users = [ "root" (if pkgs.stdenv.isDarwin then username else "@wheel") username "nixos" ];
       # trusted-users = [ "root" (if pkgs.stdenv.isDarwin then flake.config.me.username else "@wheel") "nixos" ];
