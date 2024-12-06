@@ -51,6 +51,6 @@ in
     ANDROID_SDK_ROOT = "${androidSdk}/libexec/android-sdk";
     CHROME_EXECUTABLE = pkgs.google-chrome;
   };
-  home.sessionPath = [ "~/.cargo/bin" "$ANDROID_SDK_ROOT/tools/bin" ];
+  home.sessionPath = [ "$HOME/.cargo/bin" "$ANDROID_SDK_ROOT/tools/bin" ];
 
 }

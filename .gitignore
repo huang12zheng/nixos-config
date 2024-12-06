@@ -1,3 +1,5 @@
 /result
 /.direnv
 secrets/**
+config.nix
+secrets/secrets.nix
