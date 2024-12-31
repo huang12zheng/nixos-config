@@ -34,6 +34,12 @@ in
       # trusted-users = [ "root" (if pkgs.stdenv.isDarwin then username else "@wheel") username "nixos" ];
       # trusted-users = [ "root" (if pkgs.stdenv.isDarwin then flake.config.me.username else "@wheel") "nixos" ];
     };
+    settings.auto-optimise-store = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 7d";
+    };
   };
 }
  

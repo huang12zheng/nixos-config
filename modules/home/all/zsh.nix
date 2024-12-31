@@ -12,12 +12,12 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     initExtra = ''
-        [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+      [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
     '';
     oh-my-zsh = {
-    # ohMyZsh = {
+      # ohMyZsh = {
       enable = true;
-      plugins = [ 
+      plugins = [
         "sudo"
         "vi-mode"
         "web-search"

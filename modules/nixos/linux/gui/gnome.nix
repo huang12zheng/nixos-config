@@ -7,6 +7,16 @@ in
     displayManager.autoLogin.enable = true;
     displayManager.autoLogin.user = username;
   };
+  # services.gnome.extraConfig = ''
+  #   [org.gnome.settings-daemon.plugins.media-keys.custom-keybindings]
+  #   custom0 = '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/'
+
+  #   [org.gnome.settings-daemon.plugins.media-keys.custom-keybindings.custom0]
+  #   name = 'Open NixOS Config'
+  #   command = 'code /home/hzgood/nixos-config'
+  #   binding = '<Ctrl>C'
+  # '';
+
   services.xserver = {
     enable = true;
     displayManager.gdm.enable = true;

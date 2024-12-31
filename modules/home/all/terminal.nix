@@ -49,10 +49,13 @@ in
   home.shellAliases = {
     e = "nvim";
     g = "git";
+    gc = "git clone";
     lg = "lazygit";
     l = "ls";
     beep = "say 'beep'";
     b = "bat";
+    open = "nautilus";
+    nix-gc = "nix-collect-garbage && cargo clean-all --keep-days 7 ~";
   };
 
   programs = {

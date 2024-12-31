@@ -3,7 +3,7 @@
 # { config,...}:
 { pkgs, ... }:
 {
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.05";
 
 
   # imports = ext1; 
@@ -101,7 +101,7 @@
       files.associations = {
         Vagrantfile = "ruby";
       };
-      rust-analyzer.linkedProjects = [ "./native/Cargo.toml" ];
+      # rust-analyzer.linkedProjects = [ "./native/Cargo.toml" ];
       rust-analyzer.lens.enumVariantReferences = true;
       rust-analyzer.lens.references = true;
       rust-analyzer.lens.methodReferences = true;
@@ -147,6 +147,10 @@
       {
         key = "shift+alt+a";
         command = "highlightwords.addHighlight";
+      }
+      {
+        key = "ctrl+m";
+        command = "rust-analyzer.expandMacro";
       }
     ];
   };
