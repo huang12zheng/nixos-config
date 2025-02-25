@@ -19,9 +19,9 @@
       device = "/dev/disk/by-uuid/8ef40253-fc7a-41d8-bdba-79c6b13c1b1f";
       fsType = "ext4";
     };
-
-  swapDevices = 
-    [ { device = "/dev/disk/by-uuid/85577f1d-eeeb-483a-bc25-d830ebb29a91";}];
+  zramSwap.enable = true;
+  # swapDevices =
+  #   [{ device = "/dev/disk/by-uuid/85577f1d-eeeb-483a-bc25-d830ebb29a91"; }];
 
   # boot.initrd.luks.devices."luks-1cf2cb06-3425-45d1-8a94-faf62abd3017".device = "/dev/disk/by-uuid/1cf2cb06-3425-45d1-8a94-faf62abd3017";
 

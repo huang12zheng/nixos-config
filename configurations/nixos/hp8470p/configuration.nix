@@ -38,9 +38,9 @@
     layout = "us";
     variant = "";
   };
-
+  services.xserver.excludePackages = [ pkgs.xterm ];
   # Enable CUPS to print documents.
-  services.printing.enable = true;
+  # services.printing.enable = true;
 
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
@@ -55,6 +55,52 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+
+  # environment.systemPackages = pkgs: (pkgs.defaultSystemPackages pkgs).without [
+  #   "gnome-calendar"
+  #   "gnome-clocks"
+  #   "geary"
+  #   "cheese"
+  # ];
+  # https://discourse.nixos.org/t/howto-disable-most-gnome-default-applications-and-what-they-are/13505/11
+  environment.gnome.excludePackages = with pkgs; [
+    baobab # disk usage analyzer
+    evince # document viewer
+    geary # email client
+    # gnome-backgrounds
+    gnome-bluetooth
+    gnome-calculator
+    gnome-calendar
+    gnome-characters
+    gnome-clocks
+    gnome-color-manager
+    gnome-contacts # contacts
+    # gnome-control-center
+    gnome-font-viewer
+    # gnome-logs
+    gnome-maps # maps
+    gnome-music # music
+    gnome-shell-extensions
+    gnome-themes-extra
+    gnome-weather
+    # nautilus
+    adwaita-icon-theme
+    gnome-photos
+    gnome-tour
+    gnome-user-docs
+    loupe
+    orca
+    simple-scan
+    totem # video player
+    yelp # help viewer
+    snapshot # camera
+    gnome-connections
+    xterm
+    file-roller
+  ];
+
+  # 仅保留必要工具
+  # environment.systemPackages = pkgs: [vim wget curl htop];
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [

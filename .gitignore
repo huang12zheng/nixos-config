@@ -3,3 +3,4 @@
 secrets/**
 # config.nix
 secrets/secrets.nix
+config.nix

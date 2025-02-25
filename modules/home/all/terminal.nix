@@ -73,6 +73,6 @@ in
     zoxide.enable = true;
     fzf.enable = true;
     jq.enable = true;
-    htop.enable = true;
+    # htop.enable = true;
   };
 }

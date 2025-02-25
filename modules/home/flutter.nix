@@ -32,6 +32,7 @@ in
       android-tools
       flutter
       rustup
+
       # cargo
       # rustc
       # rustfmt
@@ -39,6 +40,7 @@ in
       cargo-insta
       rust-cbindgen
       perl
+      mold
       # (pkgs.androidenv.emulateApp {
       #   name = "emulate-34";
       #   platformVersion = "34";
@@ -59,6 +61,7 @@ in
       "twiggy"
       "cargo-generate"
       "cargo-clean-all"
+      "wit-bindgen-cli"
     ];
     NIXPKGS_ACCEPT_ANDROID_SDK_LICENSE = 1;
     # ANDROID_HOME = androidSdk;
@@ -67,12 +70,15 @@ in
     RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
     LIBCLANG_PATH = "${clang_path}/lib";
     RUSTC_WRAPPER = "$HOME/.cargo/bin/sccache";
-    RUSTFLAGS = "-Zlocation-detail=none -Zfmt-debug=none";
+    CARGO_TARGET_DIR = "$HOME/.cargo/target/shared";
+    RUSTC_LINKER = "${pkgs.llvmPackages.clangUseLLVM}/bin/clang";
+    RUSTFLAGS = "-Clink-arg=-fuse-ld=${pkgs.mold}/bin/mold";
+    # RUSTFLAGS = "-Zlocation-detail=none -Zfmt-debug=none";
   };
   home.sessionPath = [
     "$HOME/.cargo/bin"
     "$ANDROID_SDK_ROOT/tools/bin"
-    "/$HOME/Gist/alias_command"
+    "$HOME/Gist/alias_command"
   ];
 
 }

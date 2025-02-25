@@ -3,10 +3,10 @@ let
   inherit (flake.config.me) username;
 in
 {
-  services = {
-    displayManager.autoLogin.enable = true;
-    displayManager.autoLogin.user = username;
-  };
+  # services = {
+  #   displayManager.autoLogin.enable = true;
+  #   displayManager.autoLogin.user = username;
+  # };
   # services.gnome.extraConfig = ''
   #   [org.gnome.settings-daemon.plugins.media-keys.custom-keybindings]
   #   custom0 = '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/'
@@ -17,10 +17,17 @@ in
   #   binding = '<Ctrl>C'
   # '';
 
+  # services.getty.autologinUser = username; // can't startup
   services.xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
-
+    displayManager = {
+      # enable = true;
+      gdm.enable = true;
+      autoLogin = {
+        enable = true;
+        user = username;
+      };
+    };
     desktopManager.gnome.enable = true;
     # desktopManager.gnome.extraGSettingsOverrides = {
     #   "org.gnome.system.proxy" = {
@@ -53,7 +60,7 @@ in
   environment.systemPackages = with pkgs; [
 
     # This is necessary to set CAPS to CTRL
-    gnome-tweaks
+    # gnome-tweaks
     # home-manager
     google-chrome
 
